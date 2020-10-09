@@ -8,6 +8,20 @@
 \usepackage{float}
 \usepackage{cite}
 
+\usepackage{xcolor,colortbl}
+
+\newcommand{\mc}[2]{\multicolumn{#1}{c}{#2}}
+\definecolor{Gray}{gray}{0.85}
+\definecolor{LightCyan}{rgb}{0.88,1,1}
+\definecolor{DayliGreen}{rgb}{0.8, 0.85, 0.84}
+\definecolor{LightGreen}{rgb}{0, 1, 0.72}
+
+\newcolumntype{a}{>{\columncolor{white}}c}
+\newcolumntype{b}{>{\columncolor{white}}c}
+
+
+\usepackage{hyperref}
+
 \usepackage{vmargin}
 
 \setpapersize{A4}
@@ -36,11 +50,15 @@
 
     \section{Introducción}
 
+    El siguiente documento tiene como objetivo establecer las pautas iniciales e implementar una 
+    arquitectura para el desarrollo de una aplicación que implemente un smart contract para la generación y 
+    validación de títulos universitarios mediante el uso de la Blockchain Federal Argentina. 
+    
     \section{Estado del arte}
 
         Esta sección tiene como objetivo tratara el estado actual de la tematica a abordar.
-        Debido a que blockchain se encuentra en constante crecimiento, no hay una gran cantidad 
-        de trabajos implementados en el ambito sobre los titulos academicos. Pero se investigo 
+        Debido a que la blockchain se encuentra en constante crecimiento, no hay una gran cantidad 
+        de trabajos implementados en el ambito sobre los titulos académicos. Pero se investigo 
         y encontraron dos propuestas sobre el tema. %Correguir implementaciones!
 
         \subsection{Blockchain federal Argentina (BFA)}
@@ -50,7 +68,7 @@
         sobre blockchain \cite{Blockchain-federal-Argentina}. % Referencia https://bfa.ar/bfa/que-es-bfa
         
         BFA propone multiples casos de uso para blockchain, entre ellos se encuentra una propuesta donde el alumno pueda solicitar
-        el titulo academico, la universidad valide la aprobacion de las materias y el ministerio de educacion certifique el titulo.
+        el titulo académico, la universidad valide la aprobación de las materias y el ministerio de educacion certifique el título (Ver Figura \ref{fig:cuadro_problematica}).
 
         Esto se propone lograrlo empleando “sellos de tiempo” donde es posible garantizar que los documentos involucrados 
         no puedan ser alterados. Estos generan digestos criptográficos (hash) de historias académicas o títulos que quedan 
@@ -75,19 +93,31 @@
         \begin{figure}
             \centering
             \includegraphics[width=\textwidth]{Img/cuadro_problematica.png}
-            \caption{}
+            \caption{Petición del título.}
             \label{fig:cuadro_problematica}
         \end{figure}
 
-        \subsection{Smart Degress}
+        \subsection{Smart Degrees}
         
-        Smart Degress es una plataforma que permite al usuario mediante una Dapp la registracion y
-        certificacion de diplomas y titulos academicos. Esto lo hace basandose en la premisa de que el 
-        exito en el mercado laboral, depende de la certificacion de los titulos obtenidos.
+        Smart Degrees \cite{smart-degrees} es una plataforma que permite al usuario mediante una Dapp la registración y
+        certificación de diplomas y títulos académicos. Esto lo hace basandose en la premisa de que el 
+        exito en el mercado laboral, depende de la certificación de los títulos obtenidos.
 
-        Para lograr su objetivo emplean la tecnologia blockchain con la cual proporcionan y añade una mayor agilidad,
+        Para lograr su objetivo emplean la tecnología blockchain con la cual proporcionan y añade una mayor agilidad,
         comodidad y seguridad. Con lo cual permite gestionar y compartir el titulo universitario en plataformas de trabajo, 
         reclutadores y terceros.
+
+        %cambios de lauti
+        Hoy en dia esta aplicación es utilizada por muy pocas universidades, la gran mayoria son Españolas. 
+        La aplicación permite subir la información del título de forma sencilla para su posterior validación, 
+        lo que elimina una gran cantidad de intermediarios (Ver Figura \ref{fig:smart-degrees}).
+        
+        \begin{figure}
+            \centering
+            \includegraphics[width=.3\textwidth]{Img/smart-degrees.jpeg}
+            \caption{Verificación del título en \textbf{Smart Degrees}.}
+            \label{fig:smart-degrees}
+        \end{figure}
 
 
     \section{Objetivos}
@@ -100,8 +130,8 @@
         \subsection{Objetivos secundarios}
 
         \begin{itemize}
-            \item Analizar los procesos que implican la generacion y validacion de un titulo.
-            \item Evaluar el ecosistema de tecnologias a implementar.
+            \item Analizar los procesos que implican la generación y validación de un título.
+            \item Evaluar el ecosistema de tecnologías a implementar.
             \item Diseñar los componentes de la aplicaciones.
             \item Implementar el sistema utilizando la BFA. 
         \end{itemize}
@@ -109,12 +139,12 @@
 
     \section{Desafíos}
 
-        Esta seccion tiene como objetivo describir los desafios que se deben afrontar para poder realizar la aplicacion propuesta.
+        Esta sección tiene como objetivo describir los desafios que se deben afrontar para poder realizar la aplicación propuesta.
 
         \subsection{Modelo y procesos del negocio} 
 
             El primer desafio planteado implica analizar y comprender por parte del equipo, los procesos que implican la 
-            generacion y validacion de un titulo universitario. Esto tiene como objetivo replicar y mejorar los procesos 
+            generación y validación de un título universitario. Esto tiene como objetivo replicar y mejorar los procesos 
             en el sistema a construirse.
         
         \subsection{Aprendizaje de tecnologias} 
@@ -127,13 +157,13 @@
                 \item NodeJS
             \end{itemize}
             
-            Las tecnologias planteadas tienen como objetivo crear una arquitectura viable y limpia para el desarrollo del sistema.
+            Las tecnologías planteadas tienen como objetivo crear una arquitectura viable y limpia para el desarrollo del sistema.
             
             
         \subsection{Difusion del sistema} 
 
-            Por ultimo se debe realizar una difusion del ecosistema planteado y lograr una aceptacion por parte de los alumnos y las diferentes entidades.
-            El objetivo de este desafio es lograr una mejora en la gestion de titulos, eliminando los intermediarios y facilitando la accesibilidad 
+            Por ultimo se debe realizar una difusión del ecosistema planteado y lograr una aceptación por parte de los alumnos y las diferentes entidades.
+            El objetivo de este desafio es lograr una mejora en la gestion de títulos, eliminando los intermediarios y facilitando la accesibilidad 
             a los documentos universitarios. 
 
     \section{Etapas}
@@ -142,24 +172,40 @@
 
         \begin{table}[H]
             \centering
-            \begin{tabular}{|c|c|}
-                \hline Activdad & Tiempo estimado \\ 
-                \hline Prueba de concepto en la BFA & \\
-                \hline Planificacion de los smart contracts & \\
-                \hline Analisis & \\
-                \hline Diseño de la arquitectura & \\ 
-                \hline Desarrollo de los smart contracts & \\
-                \hline Desarrollo del backend & \\ 
-                \hline Desarrollo del frontend & \\ 
-                \hline Despliegue sobre BFA & \\
-                \hline Tiempo total & \\
+            \begin{tabular}{|a|c|}
+                \rowcolor{DayliGreen}
+                \hline \mc{1}{Activdad} & \mc{1}{Tiempo estimado [meses]} \\ 
+                \hline Prueba de concepto en la BFA & 4\\
+                \hline Planificación de los smart contracts & 5\\
+                \hline Analisis & 4\\
+                \hline Diseño de la arquitectura & 6\\ 
+                \hline Desarrollo de los smart contracts & 4\\
+                \hline Desarrollo del backend & 10\\ 
+                \hline Desarrollo del frontend & 10\\ 
+                \hline Despliegue sobre BFA & 2\\
+                \rowcolor{LightGreen}
+                \hline \mc{1}{Tiempo total [años]}  & \mc{1}{3.75} \\
                 \hline
             \end{tabular}
             \label{tab:etapas}
         \end{table}
 
+        El tiempo establecido considera una dedicación no exclusiva al proyecto.
  
     \section{Conclusiones}
+
+    Actualmente desarrollar aplicaciones sobre la blockchain agrega un nivel mas de complejidad debido
+    a que es una tecnología es relativamente nueva. Esto hace que el desarrollador se convierta en un 
+    curador de codigo, debido a que siempre que sale una nueva versión de las herramientas que se 
+    utilizan para el desarrollo de las aplicaciones o Dapps, debe comprender los cambios y aplicarlos sobre el
+    proyecto, esto desemboca en una mayor comprensión de las tecnologias.
+    
+    El desarrollo de la aplicación planteada en los puntos anteriores ahorraría mucho tiempo en la generación y 
+    validación del título universitario. Pasando de tardar días o meses a tardar cuestion de minutos y generando confianza por parte de 
+    la entidad que requiera su validación. Por otro parte esto significa un ahorro en papel, si bien esta implementación no esta 
+    libre del consumo de energía es mucho menor al que se consume durante todo el circuito de emisión de un título.
+
+
 
 
 \bibliographystyle{IEEEannot}
