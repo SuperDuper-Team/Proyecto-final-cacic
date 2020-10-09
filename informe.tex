@@ -5,6 +5,7 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
+\usepackage{float}
 
 \usepackage{vmargin}
 
@@ -70,40 +71,72 @@
         \subsection{AWS example}
     \section{Objetivos}
 
-        En esta sección se establecen los siguientes objetivos para el proyecto. Ademas,  
-        se presentaran posibles mejoras como objetivos a largo plazo.
+        \subsection{Objetivo principal}
 
-        Los objetivos principales son:
-
-        \begin{itemize}
-            \item Realizar el backend de la aplicación con Solidity.
-            \item Realizar un deploy en la BFA.
-            \item Crear una aplicación frontend en React.
-        \end{itemize}
-
-        Por otro lado se presentan las siguientes mejoras:
+        Implementar las bases de un sistema en la blockchain que permita la generacion 
+        y autenticacion de los titulos universitarios. 
+        
+        \subsection{Objetivos secundarios}
 
         \begin{itemize}
-            \item Crear una aplicación para móviles utilizando React Native.
-            \item Incluir un control de las materias rendidas (Rendimiento academico).
+            \item Analizar los procesos que implican la generacion y validacion de un titulo.
+            \item Evaluar el ecosistema de tecnologias a implementar.
+            \item Diseñar los componentes de la aplicaciones.
+            \item Implementar el sistema utilizando la BFA. 
         \end{itemize}
-
-        En la Figura \ref{fig:cuadro_problematica} se observa como se realiza una solicitud 
-        del estado del título.
-         
-        \begin{figure}
-            \centering
-            \includegraphics[width=\textwidth]{Img/cuadro_problematica.png}
-            \caption{}
-            \label{fig:cuadro_problematica}
-        \end{figure}
-
 
 
     \section{Desafíos}
 
+        Esta seccion tiene como objetivo describir los desafios que se deben afrontar para poder realizar la aplicacion propuesta.
+
+        \subsection{Modelo y procesos del negocio} 
+
+            El primer desafio planteado implica analizar y comprender por parte del equipo, los procesos que implican la 
+            generacion y validacion de un titulo universitario. Esto tiene como objetivo replicar y mejorar los procesos 
+            en el sistema a construirse.
+        
+        \subsection{Aprendizaje de tecnologias} 
+
+            El segundo desafio sera aprender las siguientes tecnologias:
+            
+            \begin{itemize}
+                \item Blockchain Federal Argentina
+                \item React
+                \item NodeJS
+            \end{itemize}
+            
+            Las tecnologias planteadas tienen como objetivo crear una arquitectura viable y limpia para el desarrollo del sistema.
+            
+            
+        \subsection{Difusion del sistema} 
+
+            Por ultimo se debe realizar una difusion del ecosistema planteado y lograr una aceptacion por parte de los alumnos y las diferentes entidades.
+            El objetivo de este desafio es lograr una mejora en la gestion de titulos, eliminando los intermediarios y facilitando la accesibilidad 
+            a los documentos universitarios. 
+
     \section{Etapas}
 
+        La forma de trabajo a llevar a cabo sera la siguiente:
+
+        \begin{table}[H]
+            \centering
+            \begin{tabular*}{|c|c|}
+                \hline Activdad & Tiempo estimado \\ 
+                \hline Prueba de concepto en la BFA & \\
+                \hline Planificacion de los smart contracts & \\
+                \hline Analisis & \\
+                \hline Diseño de la arquitectura & \\ 
+                \hline Desarrollo de los smart contracts & \\
+                \hline Desarrollo del backend & \\ 
+                \hline Desarrollo del frontend & \\ 
+                \hline Despliegue sobre BFA & \\
+                \hline Tiempo total & \\
+            \end{tabular*}
+            \label{tab:etapas}
+        \end{table}
+
+ 
     \section{Conclusiones}
 
 \end{document}
