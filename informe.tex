@@ -6,6 +6,7 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{cite}
 
 \usepackage{vmargin}
 
@@ -46,7 +47,7 @@
 
 
         Blockchain Federal Argentina es una plataforma multiservicios abierta y participativa pensada en integrar servicios y aplicaciones
-        sobre blockchain. % Referencia https://bfa.ar/bfa/que-es-bfa
+        sobre blockchain \cite{Blockchain-federal-Argentina}. % Referencia https://bfa.ar/bfa/que-es-bfa
         
         BFA propone multiples casos de uso para blockchain, entre ellos se encuentra una propuesta donde el alumno pueda solicitar
         el titulo academico, la universidad valide la aprobacion de las materias y el ministerio de educacion certifique el titulo.
@@ -54,8 +55,8 @@
         Esto se propone lograrlo empleando “sellos de tiempo” donde es posible garantizar que los documentos involucrados 
         no puedan ser alterados. Estos generan digestos criptográficos (hash) de historias académicas o títulos que quedan 
         almacenados en la blockchain y a través de ellos se puede garantizar que los mismos no han recibido modificaciones 
-        indebidas en todo el proceso. % Referencia https://bfa.ar/blockchain/casos-de-uso/titulos-academicos
-
+        indebidas en todo el proceso \cite{titulos-academicos}. % Referencia https://bfa.ar/blockchain/casos-de-uso/titulos-academicos
+ 
         Las ventajas que presenta esta solucion son:
         
         \begin{itemize}
@@ -141,7 +142,7 @@
 
         \begin{table}[H]
             \centering
-            \begin{tabular*}{|c|c|}
+            \begin{tabular}{|c|c|}
                 \hline Activdad & Tiempo estimado \\ 
                 \hline Prueba de concepto en la BFA & \\
                 \hline Planificacion de los smart contracts & \\
@@ -152,11 +153,15 @@
                 \hline Desarrollo del frontend & \\ 
                 \hline Despliegue sobre BFA & \\
                 \hline Tiempo total & \\
-            \end{tabular*}
+                \hline
+            \end{tabular}
             \label{tab:etapas}
         \end{table}
 
  
     \section{Conclusiones}
 
+
+\bibliographystyle{IEEEannot}
+\bibliography{biblio}
 \end{document}
